@@ -1,0 +1,27 @@
+@host=http://localhost:5135
+@jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiam9obiIsImVtYWlsIjoiam9obkBtYWlsLmNvbSIsInJvbGVzIjoiYWRtaW4sdXNlciIsIm5iZiI6MTcxMTg4OTg4OSwiZXhwIjoxNzExODkzNDg5LCJpYXQiOjE3MTE4ODk4ODksImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC8iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAvIn0.kUQvg0CHiDs-nQGuOvClEV65RFdfC1NlZzy3RnzCJpc
+
+
+
+### home
+GET {{host}}/
+
+
+### options
+GET {{host}}/options
+Authorization: Bearer {{jwt}}
+
+### genJWT
+POST {{host}}/gentoken
+Content-Type: application/json
+
+{
+    "name": "john",
+    "email": "john@mail.com",
+    "roles": ["admin", "user"]
+}
+
+### get users
+GET {{host}}/users
+Accept: application/json
+Authorization: Bearer {{jwt}}
